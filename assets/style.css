@@ -1,0 +1,16 @@
+.jumbotron {
+    background-color: aqua;
+}
+
+#searchBtn {
+    color:red;
+    background-color: aqua;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.card {
+    padding: 1rem;
+    border: 1px solid black;
+    margin: 1rem;
+    /* background-color: aqua; */
+    }

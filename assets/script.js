@@ -1,9 +1,7 @@
 var apiKey = "f44b9b431359928fe1e80531f7a8ae4d";
-
 var searchBtn = document.getElementById('searchBtn');
 
 console.log(document.getElementById('city'));
-// https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}
 function getweatherdata(){
     console.log(queryURL);
     var city = document.getElementById('city').value;
@@ -20,15 +18,16 @@ fetch(queryURL)
     let hum = data.main.humidity
     let wind = data.wind.speed
     let loc = data.name
+    const container = document.getElementById('accordion');
     console.log(data);
     let datadiv=document.createElement('div')
-    let temp_para=document.createElement('p')
-    let wind_para=document.createElement('p')
-    let hum_para=document.createElement('p')
-    let loc_para=document.createElement('p')
+    let temp_para=document.createElement('h4')
+    let wind_para=document.createElement('h4')
+    let hum_para=document.createElement('h4')
+    let loc_para=document.createElement('h1')
 
-    loc_para.innerHTML=city
-    temp_para.innerHTML="temp is "+ temp +" degrees Fahrenheit"
+    loc_para.innerHTML=city + " " + today
+    temp_para.innerHTML="temperature is "+ temp +" degrees F"
     hum_para.innerHTML="humidity is "+hum+"%"
     wind_para.innerHTML="wind speed is "+wind+" MPH"
 
@@ -44,16 +43,29 @@ fetch(queryURL)
     // }
 })
 }
-function getforecastdata(lat , lon){
-let queryURL="https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "37795c33a97e3c4d32a795d6bfcc9232";
+function getforecastdata(){
+    var city = document.getElementById('city').value;
+let queryURL="https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey
 fetch(queryURL)
     .then(function(response) {
     return response.json();
 }).then(function(data){
+    let day1 = data.list;
+    let day2 = data.list;
     console.log(data)
+    let datadiv=document.createElement('div')
+    let day1_para=document.createElement('h1')
+
+    day1_para.innerHTML= day1
 })
 
 }
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = mm + '/' + dd + '/' + yyyy;
 // console.log(queryURL);
 // fetch(queryURL)
 //     .then(function(response) {
