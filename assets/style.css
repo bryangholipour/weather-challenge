@@ -1,10 +1,14 @@
+*{
+    padding-left: 5px;
+}
+
+
 .jumbotron {
-    background-color: aqua;
+    background-color: rgb(190, 190, 240);
 }
 
 #searchBtn {
-    color:red;
-    background-color: aqua;
+    background-color: rgb(190, 190, 240);
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -12,5 +16,11 @@
     padding: 1rem;
     border: 1px solid black;
     margin: 1rem;
-    /* background-color: aqua; */
+    background-color: rgb(190, 190, 240);
+    /* display:none; */
     }
+
+.show{
+    display: block !important;
+
+  }
